@@ -221,14 +221,14 @@ for (let i = 0; i < all.length; i++) {
     all[i].textContent = bingo[characterIndex].name;
 
     squares[characterIndex].style.backgroundImage =
-        `url(../costume/${bingo[characterIndex].image}.jpg)`;
+        `url(./costume/${bingo[characterIndex].image}.jpg)`;
 
     all[i].addEventListener('click', () => {
 
         imageScreen.style.display = 'flex';
 
         bingoImage.style.backgroundImage =
-            `url(../costume/${bingo[characterIndex].image}.jpg)`;
+            `url(./costume/${bingo[characterIndex].image}.jpg)`;
 
         selectedIndex = characterIndex;
 
