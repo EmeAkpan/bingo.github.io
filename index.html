@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00000">
+
+    <title>Document</title>
+<script src="script.js" ></script>
+<script src="app.js" type="module" ></script> 
+
+</head> 
+<style>
+body{
+margin: 0;
+background: linear-gradient(180deg, #C75213 0%, #FF851F 17%, #FF6B15 32%, #E25207 48%, #FF6B15 59%, #E27516 81%, #CD4B06 92%);
+  background-attachment: fixed; 
+  background-color: #CD4B06;
+} 
+
+.main-page{
+    position: fixed;
+    height: 100dvh;
+}
+
+header{
+    height: 33vh;
+}
+
+.info{
+    height: 5.93vh;
+    width: 100vw;
+}
+
+.title{ 
+    height: 16.82vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder; 
+    font-size: 80px;
+
+} 
+
+.photo-gallery{ 
+    height: 7.25vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery{
+    position: relative;
+    height: 100%;
+    width: 180px;
+    background: rgba(0, 0, 0, 0.479);
+    border-radius: 40px;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px rgba(0, 0, 0, 0.3); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    color: white;
+    cursor: pointer;
+
+
+}    
+/* ^^^for gallery    box-shadow: inset 5px 5px 10px rgba(252, 252, 252, 0.308), inset -5px -5px 10px rgba(0, 0, 0, 0.3); 
+    box-shadow: inset 5px 5px 10px rgba(252, 252, 252, 0.308), inset -5px -5px 10px rgba(0, 0, 0, 0.3); 
+
+
+*/
+
+
+
+.gallery div:nth-child(1){
+    height: 100%;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 19px;
+
+
+}    
+
+.photo-count{
+    right: 3%; 
+    width: 5.2vh;
+    height: 5.2vh;
+    border-radius: 50%;
+    display: flex; 
+    color: rgb(4, 4, 4);
+    justify-content: center;
+    align-items: center;
+    background-image: url('pumpkin-icon.svg'); 
+    background-repeat: no-repeat;
+    background-position: 50% 45%; 
+    background-size: 95%;
+    font-weight: bold;
+    opacity: .5;
+    
+}
+
+.main{ 
+    height: 53vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bingo-board{
+    position: relative;
+    height: 80%;  
+    width: 93%;
+    border: 2px solid black;
+    border-radius: 5px;  
+    background: rgba(0, 0, 0, 0.537);
+    display: flex;
+    display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  grid-template-rows: repeat(5, 1fr);    
+}
+
+.bingo-square {
+  background-color: #fef9c3; 
+  border: 2px solid black;
+  border-radius: 5px;  
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold; 
+  font-size: 14px;
+  width: auto; 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  overflow-wrap: break-word; 
+  word-break: break-word; 
+  white-space: normal;  
+  
+  text-align: center; 
+}
+
+.free-cell{
+    background-color: #050505;; 
+    border: 2px solid black;
+    border-radius: 5px;  
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold; 
+    display: flex;
+    color: white; 
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+} 
+
+.bingo-board div:hover{
+    background-color: rgb(165, 2, 165);
+   
+}
+
+footer{ 
+    height: 22vh;
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+}
+
+.reload{
+    height: 60px;
+    width: 60px;
+    background-color: rgba(0, 0, 0, 0.419);
+    border-radius: 50%;
+    border: 1px solid rgb(106, 36, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center; 
+    text-align: center;
+} 
+
+.bingo{
+    height: 60px;
+    width: 160px;
+    background-color: rgba(0, 0, 0, 0.951);
+    border-radius: 40px;
+    border: 1px solid rgb(106, 36, 1);
+    margin-left: 20px;
+    margin-right: 20px; 
+    box-shadow: inset -5px 5px 10px rgb(41, 95, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.list{
+    height: 60px;
+    width: 60px;
+    background-color: rgba(0, 0, 0, 0.419);
+    border-radius: 50%;
+    border: 1px solid rgb(8, 8, 8);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.bingo-image-screen{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.911); 
+    top: 0;
+    display: none; /* flex */  
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center; 
+}
+ 
+.bingo-image-image{
+    height: 200px;
+    width: 200px; 
+    background: rgba(255, 255, 255); 
+    border-radius: 15px;
+    border: 1px solid grey; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+
+
+}
+
+.bingo-image-close-button{
+    height: 50px;
+    width: 120px;   
+    border-radius: 50px;
+    position: absolute;
+    bottom: 60px;  
+    background-color: rgba(255, 255, 254, 0) ;
+    border: 1px solid grey; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    color: grey;
+    font-size: 20px;
+
+} 
+  
+.bingo-image-text{
+    height: 60px;
+    color: white;    
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.bingo-take-image{ 
+    height: 200px;
+    width: 200px; 
+    background: rgba(124, 124, 124, 0.522); 
+    border: 1px solid grey; 
+    border-radius: 15px;
+    background-image: url('camera-image.svg');  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;  
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.bingo-take-image input[type="file"] {
+    height: 100%;
+    width: 100%; 
+    opacity: 0; /* Invisible to the eye */
+    cursor: pointer;
+}
+
+
+ 
+ 
+.listopher{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;  
+    top: 0; 
+    display: none; /* flex */
+    flex-direction: column;  
+    overflow: hidden; 
+} 
+
+.listopher-title{ 
+    position: relative;
+    height: 20%; 
+    width: 100vw;
+    color: white;
+    font-size: 10vw;
+    display: flex; /* flex */
+    justify-content:center ;
+    align-items: center;
+    display: flex; /* flex */
+    position: fixed;
+    background: rgb(0 0 0 / 98%);
+    z-index: 2;
+}
+
+.gallery-close {
+
+border: 2px solid;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.list-close {
+    height: 35px;
+position: absolute;
+left: 10%;
+border: 2px solid;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.bingo-bio{
+    height: 150px;
+    width: 150px; 
+    background: rgb(255, 253, 253); 
+    border-radius: 15px;
+    border: 1px solid grey; 
+    box-shadow: inset -1px -15px 13px 0px #000000a6;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+
+}
+ 
+
+.bingo-bio:nth-last-child(1){ 
+    margin-bottom: 891px; 
+
+
+}   
+.bingo-bio-container-container{
+    background: rgb(0 0 0 / 97%);
+    position: absolute;
+    height: 170vh;    
+    width: 100vw ;
+    top: 17%; 
+    display: flex; 
+    flex-direction: column;
+    gap: 20px; 
+    overflow: scroll;
+}
+
+.bingo-bio-container{
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    margin-left: 20px;
+    margin-right: 20px;  
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.bingo-bio-container span{
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.377);
+    border-radius: 40px;
+}
+
+.gallery-screen{
+    position: relative;
+    height: 100vh;
+    background: rgb(0 0 0 /  98%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s all ease-in-out;
+} 
+
+.gallery-screen-title{
+    height: 35px;
+position: absolute;
+top: 10%;
+color: white;
+display: flex;
+gap: 20px; 
+justify-content: center;
+align-items: center; 
+font-size: 28px;
+}
+
+ 
+.gallery-screen-images{
+
+    width: 100vh;
+    height: 500px;
+    display: flex;
+    gap: 25vw;
+    overflow-x: scroll;
+    align-items: center;
+    padding-left: 50%;
+    padding-right: 50%;
+    
+    scroll-snap-type: x mandatory; 
+    box-sizing: border-box;
+
+    
+
+}  
+
+
+.gallery-image-container{
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 20px;
+}
+.gallery-screen-image{
+    width: 300px ;
+    height: 400px;
+      flex-shrink: 0;   /* Stops the parent from squeezing it */
+ 
+     scroll-snap-align: center; 
+         scroll-snap-stop: always; 
+
+
+}
+.gallery-screen-image img{
+object-fit: contain;
+width: 100%;
+height: 100%;
+
+}
+
+
+/* Individual winning squares */
+
+.square-pop {
+    animation: squareRaise 0.4s ease forwards;
+    z-index: 5;
+}
+
+@keyframes squareRaise {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px) scale(1.08);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
+/* Entire board animation */
+
+.board-win {
+    animation: boardSmash 0.7s ease forwards;
+}
+
+@keyframes boardSmash {
+
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    35% {
+        transform: translateY(-60px) scale(1.04);
+    }
+
+    65% {
+        transform: translateY(15px) scale(0.96);
+    }
+
+    85% {
+        transform: translateY(-10px) scale(1.02);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* BINGO message */
+
+.bingo-win-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 65px;
+    font-weight: 900;
+    color: rgb(249, 135, 4);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 5px 5px 0 black;
+
+    z-index: 100;
+    pointer-events: none;
+
+    animation: bingoText 0.5s ease forwards;
+}
+
+@keyframes bingoText {
+
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+}
+
+
+/* No bingo shake */
+
+.shake-board {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    20%, 60% {
+        transform: translateX(-12px);
+    }
+
+    40%, 80% {
+        transform: translateX(12px);
+    }
+
+}
+
+
+/* No bingo message */
+
+.no-bingo-message {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+
+    white-space: nowrap;
+    z-index: 100;
+}
+</style>
+<body>
+    <div class="main-page"> 
+<header class="header">
+    <div class="info"> </div>
+    <div class="title"> BINGO </div>
+    <div class="photo-gallery"> 
+        <button class="gallery">
+            <div> View Gallery</div> 
+            <div class="photo-count"> 0/24</div> 
+        </button> 
+    </div>
+</header>
+<div class="main">
+    <div class="bingo-board">
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="free-cell"> 
+            <p>FREE CELL</p>
+        </div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+        <div class="bingo-square"></div>
+
+    </div>
+</div>
+<footer class="footer">
+    <div class="reload"> Restart </div>
+    <div class="bingo"> BINGO! </div>
+    <div class="list"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+    <path style="stroke:none;fill-rule:nonzero;fill:#f8f7f7;fill-opacity:1" d="M5.332 14a1.999 1.999 0 1 0 0 4c1.11 0 2-.895 2-2s-.89-2-2-2Zm0-8a1.999 1.999 0 1 0 0 4c1.11 0 2-.895 2-2s-.89-2-2-2Zm0 16c-1.105 0-2 .906-2 2 0 1.094.906 2 2 2 1.094 0 2-.906 2-2 0-1.094-.89-2-2-2Zm4 3.332H28v-2.664H9.332Zm0-8H28v-2.664H9.332Zm0-10.664v2.664H28V6.668Zm0 0"/>
+</svg>
+ </div>
+</footer>
+</div> 
+
+<div class="bingo-image-screen">
+    <button class="bingo-image-close-button">
+        <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="18" y1="6" x2="6" y2="18"></line>
+  <line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>  
+<div class="close-text">Close</div>
+</button>
+    <div class="bingo-image-image"></div>
+    <div class="bingo-image-text">HELLO</div>
+    <div class="bingo-take-image">
+        <input class="input" type="file" accept="image/*">
+
+    </div>
+</div>
+<div class="gallery-screen">
+<div class="gallery-screen-title">
+    <div class="gallery-close">
+            <svg xmlns="http://w3.org" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="18" y1="6" x2="6" y2="18"></line>
+  <line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>  
+</div> Gallery
+</div>
+<div class="gallery-screen-images">
+   
+
+
+</div>
+    
+</div>
+
+  <div class="gallery-image-container">
+        <div class="gallery-screen-image "> <img alt="Your uploaded image will show here" > </div>
+        <div class="galley-screen-name">Name</div>  
+    </div>
+
+<div class="listopher">
+<div class="listopher-title">  
+    <div class="list-close">
+            <svg xmlns="http://w3.org" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="18" y1="6" x2="6" y2="18"></line>
+  <line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>  
+</div>
+    List </div>
+    <div class="bingo-bio-container-container">
+<div class="bingo-bio-container">
+
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+    <span></span>
+    <div class="bingo-bio"><img src="" alt=""><span class="character-name"></span></div>
+
+</div>
+    </div> 
+</div>
+
+
+</body>
+<script>
+
+</script>
+</html>
